@@ -1,0 +1,32 @@
+<style>
+    .main-header {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    
+    .main-header>* {
+        font-size: 1.5em;
+        letter-spacing: 0.15em;
+        font-weight: 900;
+    }
+    
+    .main-header a {
+        text-decoration: none;
+        color: #5555CC;
+        transition: color 0.3s;
+    }
+    
+    .main-header a:hover {
+        color: #8888FF;
+    }
+    
+    .main-header>*:last-child {
+        margin-left: auto;
+    }
+</style>
+<header class="main-header">
+    <div style="margin-right: 15px;"><a href="/">Home</a></div>
+    <div><a href="/about">About</a></div>
+    <div><a href="/404">404</a></div>
+</header>

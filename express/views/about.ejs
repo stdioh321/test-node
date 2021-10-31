@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head.ejs") %>
+
+
+    <body>
+        <style>
+            .text-danger {
+                color: red;
+                font-size: 1.2em;
+            }
+            
+            .form>div {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .form>div>*:nth-child(1) {
+                flex: 1;
+                margin-right: 5px;
+            }
+            
+            .form>div>*:nth-child(2) {
+                padding: 7.5px;
+            }
+        </style>
+
+        <%- include('partials/header.ejs') %>
+
+            <h1>ABOUT</h1>
+            <h2>
+                abcccccccccc
+            </h2>
+            <hr>
+            <div>
+                <form action="" method="GET" class="form">
+                    <div class="">
+                        <input type="text" value="Random Text" name="text" />
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+            <h3>
+                <div>From Server/Query</div>
+                <div class="text-danger"><b><i><%= text %></i></b></div>
+            </h3>
+            <hr>
+            <ul>
+                <%
+        list.forEach((it)=>{
+            %>
+                    <li>
+                        <%= it %>
+                    </li>
+                    <%
+        });
+        %>
+
+            </ul>
+    </body>
+
+</html>

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@font-face {
+    font-family: 'Mulled Wine Season';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Mulled Wine Season'), url('https://fonts.cdnfonts.com/s/32088/MulledWineSeason-Medium.woff') format('woff');
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
