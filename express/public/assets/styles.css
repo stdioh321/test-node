@@ -9,3 +9,15 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.spinner {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    transition: all 0.4s;
+}

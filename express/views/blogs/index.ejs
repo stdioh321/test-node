@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head") %>
+    <style>
+        .blog-item {
+            border-left: var(--red) 10px solid;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="d-flex">
+                        <div class="flex-fill" data-doc1="abc1" data-doc2="abc2">Blogs</div>
+                        <div>
+                            <a href="/blogs/create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </h1>
+                </div>
+            </div>
+            <section class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <% blogs.forEach(it=>{ %>
+
+                            <li class="blog-item list-group-item mb-2 d-flex">
+                                <div class="flex-fill">
+                                    <div class="h4">
+                                        <%= it.title %>
+                                    </div>
+                                    <small class="d-block text-muted"><%= it.snipped %></small>
+                                    <small class="d-block text-primary"><%= it.id %></small>
+                                </div>
+                                <div class="d-flex flex-column align-items-end">
+                                    <button class="btn btn-danger mb-1" onclick="onBlogDelete('<%= it.id %>')">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="/blogs/<%= it.id %>/edit">
+                                        <button class="btn btn-info">
+                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        </button></a>
+
+                                </div>
+                            </li>
+                            <%}) %>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            function onBlogDelete(id) {
+
+                const ok = confirm("Are you sure?");
+                if (!ok) return;
+                let spinner = document.createElement("div");
+                spinner.classList.add("spinner");
+                document.body.appendChild(spinner);
+                fetch(`/blogs/${id}`, {
+                        method: "DELETE"
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        location = location;
+                        setTimeout(() => {
+                            spinner.parentNode.removeChild(spinner);
+                        }, 200);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        alert("Error deleting blog");
+                        spinner.parentNode.removeChild(spinner);
+                    })
+            }
+        </script>
+    </body>
+
+</html>
